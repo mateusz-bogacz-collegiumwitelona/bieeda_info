@@ -1,6 +1,7 @@
-#Audio.py
+# Audio.py
 
 import wmi
+
 
 class Audio:
     def __init__(self):
@@ -15,6 +16,6 @@ class Audio:
             for device in audio_devices:
                 device_info.append(device.Name)
             return device_info
-        except wmi.x_wmi as e:
+        except wmi.x_wmi:
             # Handle WMI exceptions
             return None

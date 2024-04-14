@@ -1,6 +1,7 @@
 # Network.py
 import wmi
 
+
 class Network:
     def __init__(self):
         self.c = wmi.WMI()

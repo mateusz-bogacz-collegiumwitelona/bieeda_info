@@ -1,6 +1,8 @@
 from Gui import SystemInfoApp
 
-# Main entry point of the application
 if __name__ == "__main__":
-    app = SystemInfoApp()
-    app.mainloop()
+    try:
+        app = SystemInfoApp()
+        app.mainloop()
+    except KeyboardInterrupt:
+        print("Ctrl+C detected. Exiting gracefully...")

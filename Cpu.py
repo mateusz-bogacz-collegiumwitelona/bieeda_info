@@ -25,5 +25,3 @@ class CPU:
         except Exception:
             # Handle exceptions
             return None
-
-

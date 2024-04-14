@@ -2,6 +2,7 @@
 
 import wmi
 
+
 class Ram:
     def __init__(self):
         self.c = wmi.WMI()
@@ -27,7 +28,7 @@ class Ram:
         try:
             ram = Ram.get_ram_size(self)
             moduls = Ram.count_memory_modules(self)
-            modules_size = round(ram)/moduls
+            modules_size = round(ram) / moduls
             return modules_size
-        except Exception as e:
+        except Exception:
             return None
