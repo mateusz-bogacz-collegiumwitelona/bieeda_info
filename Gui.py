@@ -102,7 +102,7 @@ class SystemInfoApp(tk.Tk):
         self.cpu_label.config(text=cpu_instance.get_cpu_info() if cpu_instance else "N/A")
         self.gpu_label.config(text=gpu_instance.get_graphics_card_name() if gpu_instance else "N/A")
         self.ram_label.config(
-            text=f"{round(ram_instance.get_ram_size())} GB = {ram_instance.count_memory_modules()} * {ram_instance.get_modules_size()} GB" if ram_instance else "N/A")
+            text=f"{round(ram_instance.get_ram_size())} GB = {ram_instance.count_memory_modules()} * {ram_instance. get_modules_size()} GB" if ram_instance else "N/A")
         self.system_label.config(text=system_instance.Get_System_caption() if system_instance else "N/A")
         self.board_label.config(text=str(board_instance.get_motherboard()) if board_instance else "N/A")
 
@@ -136,7 +136,7 @@ class SystemInfoApp(tk.Tk):
             network_geteway = network_instance.get_network_gateway()
             for device, ip, mask, geteway in zip(network_devices, ip_address, subnet_mask, network_geteway):
                 network_info += (f"{device} \n"
-                                 f"    Address:{ip} \n"
+                                 f"    Address: {ip} \n"
                                  f"    SubnetMask: {mask} \n"
                                  f"    Gateway: {geteway} \n")
         self.network_label.config(text=network_info if network_info else "N/A")
