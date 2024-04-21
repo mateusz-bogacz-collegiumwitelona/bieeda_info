@@ -18,6 +18,8 @@ class SystemInfoApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Bieda info")
+        self.geometry("700x400")
+        self.resizable(False, False)
 
         # Create the main frame
         self.main_frame = ttk.Frame(self)
@@ -74,13 +76,13 @@ class SystemInfoApp(tk.Tk):
 
         # Network
         self.network_title_label = ttk.Label(self.main_frame, text="Network information:")
-        self.network_title_label.grid(row=6, column=0, sticky="w")
+        self.network_title_label.grid(row=8, column=0, sticky="w")
         self.network_label = ttk.Label(self.main_frame, text="")
-        self.network_label.grid(row=6, column=1, sticky="w")
+        self.network_label.grid(row=8, column=1, sticky="w")
 
         # Button to export information to a file
         self.export_button = ttk.Button(self.main_frame, text="Export to File", command=self.export_to_file)
-        self.export_button.grid(row=8, column=0, columnspan=2, pady=10)
+        self.export_button.grid(row=10, column=0, columnspan=2, pady=10, sticky="ew")
 
         # Display system information when the app starts
         self.display_info()
@@ -118,6 +120,7 @@ class SystemInfoApp(tk.Tk):
 
         # Display optical drivers information
         self.optical_label.config(text=str(optical_instance.get_optical_drivers()) if optical_instance else "N/A")
+
 
         # Retrieve and format audio devices information
         audio_info = ""
