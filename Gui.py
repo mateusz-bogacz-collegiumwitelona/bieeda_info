@@ -3,22 +3,14 @@
 import tkinter as tk
 from tkinter import ttk, filedialog
 
-from Audio import Audio
-from Cpu import CPU
-from Gpu import GraphicsCard
-from Optical_drivers import Optical_drivers
-from Ram import Ram
-from System import System
-from Motherboard import Motherboard
-from Storage import Storage
-from Network import Network
+from Info import Audio, CPU, GraphicsCard, Motherboard, Network, Optical_drivers, Ram, Storage, System
 
 
 class SystemInfoApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Bieda info")
-        self.geometry("700x400")
+        self.geometry("600x400")
         self.resizable(False, False)
 
         # Create the main frame
@@ -104,7 +96,7 @@ class SystemInfoApp(tk.Tk):
         self.cpu_label.config(text=cpu_instance.get_cpu_info() if cpu_instance else "N/A")
         self.gpu_label.config(text=gpu_instance.get_graphics_card_name() if gpu_instance else "N/A")
         self.ram_label.config(
-            text=f"{round(ram_instance.get_ram_size())} GB = {ram_instance.count_memory_modules()} * {ram_instance. get_modules_size()} GB" if ram_instance else "N/A")
+            text=f"{round(ram_instance.get_ram_size())} GB = {ram_instance.count_memory_modules()} * {ram_instance.get_modules_size()} GB" if ram_instance else "N/A")
         self.system_label.config(text=system_instance.Get_System_caption() if system_instance else "N/A")
         self.board_label.config(text=str(board_instance.get_motherboard()) if board_instance else "N/A")
 
@@ -120,7 +112,6 @@ class SystemInfoApp(tk.Tk):
 
         # Display optical drivers information
         self.optical_label.config(text=str(optical_instance.get_optical_drivers()) if optical_instance else "N/A")
-
 
         # Retrieve and format audio devices information
         audio_info = ""
